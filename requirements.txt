@@ -1,0 +1,11 @@
+pandas
+scikit-learn
+transformers
+omegaconf
+wandb
+nltk
+isort
+black
+torch
+torchvision
+image
