@@ -1,19 +1,18 @@
 #!/bin/bash
 
 source .env
-scp -r config.yaml server$server_name:/data/ephemeral/home/level2-competitiveds-recsys-06
+scp -r config.yaml server$server_name:/data/ephemeral/home/level2-bookratingprediction-recsys-06
 
 # ssh 명령어에 .env에서 불러온 변수 사용
 ssh server$server_name << ENDSSH
 #!/bin/bash
-cd /data/ephemeral/home/level2-competitiveds-recsys-06
+cd /data/ephemeral/home/level2-bookratingprediction-recsys-06
 
 git fetch
 git pull
 
 /opt/conda/bin/python3 -m pip install -r ./requirements.txt
 
-cd ./src/server
 # app.py가 실행 중인지 확인
 if pgrep -f "/opt/conda/bin/python3 app.py" > /dev/null
 then
