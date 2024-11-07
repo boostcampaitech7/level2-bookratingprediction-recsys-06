@@ -11,7 +11,7 @@ ssh $server_name << 'ENDSSH'
   eval "$(ssh-agent -s)"
   ssh-add /root/.ssh/id_ed25519
   echo "반드시 Github 개인 계정에 등록후 사용하세요 && ssh server로 직접 접속하여 실행"
-  git clone git@github.com:boostcampaitech7/level2-bookratingprediction-recsys-06.git
+  git clone git@github.com:boostcampaitech7/$prj_name.git
 ENDSSH
 echo "실행 완료! Press Any Key..."
 read

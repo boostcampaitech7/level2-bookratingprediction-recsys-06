@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source .env
-scp -r config.yaml server$server_name:/data/ephemeral/home/level2-bookratingprediction-recsys-06
+scp -r config.yaml server$server_name:/data/ephemeral/home/$prj_name
 
 # ssh 명령어에 .env에서 불러온 변수 사용
 ssh server$server_name << ENDSSH
