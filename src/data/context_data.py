@@ -65,7 +65,7 @@ class ContextData(DataInterface):
         )[sparse_cols]
         all_df = pd.concat([train_df, test_df], axis=0)
 
-        self._data = self._encode_label(all_df, train_df, test_df, sub, sparse_cols)
+        self._data = self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
         self._data.update({"field_names": sparse_cols})
         label2idx = self._data.get("label2idx")
         field_dims = [

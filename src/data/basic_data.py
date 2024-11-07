@@ -29,7 +29,7 @@ class BasicData(DataInterface):
         sparse_cols = ["user_id", "isbn"]
 
         # 라벨 인코딩하고 인덱스 정보를 저장
-        data = self._encode_label(all_df, train_df, test_df, sub, sparse_cols)
+        data = self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
         data.update({"test": data.get("test").drop(["rating"], axis=1)})
         self._data = data
 

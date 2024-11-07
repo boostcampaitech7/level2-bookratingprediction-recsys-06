@@ -65,7 +65,7 @@ class TextData(DataInterface):
         )[sparse_cols + ["user_summary_merge_vector", "book_summary_vector"]]
         all_df = pd.concat([train, test], axis=0)
 
-        self._data = self._encode_label(all_df, train_df, test_df, sub, sparse_cols)
+        self._data = self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
         self._data.update({"field_names": sparse_cols})
 
     def data_split(self):
