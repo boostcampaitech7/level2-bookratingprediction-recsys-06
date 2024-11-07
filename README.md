@@ -8,19 +8,23 @@
 
 ```bash
 ├── src # AI 모델 학습을 위한 부분
-│   ├── config # config.yaml 값 가져 오는 함수 제공
-│   ├── model # 
-│   └── pre_process # 모델 학습전 전처리
-├── data #.gitignore
-│   └── .csv #.gitignore
-│     └── processed # 기타 csv 저장을 위한 저장소
-├── EDA # 개인 EDA 폴더
-│   └── {팀원 명} 
-│        ├──*.ipynb
+│   ├── data # data 처리를 위한 .py 모듈
+│   ├── ensembles # 앙상블 처리를 위한 .py 모듈
+│   ├── loss # loss 계산을 위한 .py 모듈
+│   ├── model # DL & ML 모델
+│   └── train # 학습 관련 .py모듈
+├── data #.gitignore # 데이터 저장소
 ├── app.py # 모델 학습을 위한 python 파일
-├── config-sample.yaml # 하이퍼 파라미터 및 모델 & 서버 선택을 위한 설정 값
+├── config-sample.yaml # 하이퍼 파라미터 및 모델 & 서버 선택을 위한 설정 값 예시 -> config.yaml로 복사해서 사용
+├── .env.sample # .env 설정의 예시값 -> .env로 복사해서 사용
+├── 1.server-keygen.sh # github 연동을 위한 keygen
+├── 2.init-git-clone.sh # github 연동 이후 server에 git clone 적용
+├── 3.start-app.sh # app.py 실행을 위한 .sh
+├── 4.kill-app.sh # app.py 실행 이후 중단을 위한 .sh
+├── 5.scp-data-send-server.sh # data 파일의 변경이 있을 경우, 사용을 위한 
+├── 6.scp-get-output-data.sh # output directory 그대로 이전을 위한 .sh
 ├── .gitignore
-├── Readme.md
+├── README.md
 └── requirements.txt
 ```
 
