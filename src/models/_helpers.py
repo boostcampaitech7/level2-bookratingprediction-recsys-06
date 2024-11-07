@@ -100,7 +100,7 @@ class FMLayer_Sparse(nn.Module):
 # 사용되는 모델 : DeepFM, Image_DeepFM, Text_DeepFM, WDN, DCN, NCF
 class MLP_Base(nn.Module):
     def __init__(
-            self, input_dim, embed_dims, batchnorm=True, dropout=0.2, output_layer=False
+        self, input_dim, embed_dims, batchnorm=True, dropout=0.2, output_layer=False
     ):
         super().__init__()
         self.mlp = nn.Sequential()
@@ -134,14 +134,14 @@ class MLP_Base(nn.Module):
 # 사용되는 모델 : Image_FM, Image_DeepFM
 class CNN_Base(nn.Module):
     def __init__(
-            self,
-            input_size=(3, 64, 64),
-            channel_list=[8, 16, 32],
-            kernel_size=3,
-            stride=2,
-            padding=1,
-            dropout=0.2,
-            batchnorm=True,
+        self,
+        input_size=(3, 64, 64),
+        channel_list=[8, 16, 32],
+        kernel_size=3,
+        stride=2,
+        padding=1,
+        dropout=0.2,
+        batchnorm=True,
     ):
         super().__init__()
 
@@ -150,7 +150,7 @@ class CNN_Base(nn.Module):
         self.cnn = nn.Sequential()
         in_channel_list = [input_size[0]] + channel_list[:-1]
         for idx, (in_channel, out_channel) in enumerate(
-                zip(in_channel_list, channel_list)
+            zip(in_channel_list, channel_list)
         ):
             self.cnn.add_module(
                 f"conv{idx}",

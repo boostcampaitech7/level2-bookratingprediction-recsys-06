@@ -83,7 +83,7 @@ def load_config():
             k: v
             for k, v in cfg.optimizer.args.items()
             if k
-               in getattr(
+            in getattr(
                 optimizer_module, cfg.optimizer.type
             ).__init__.__code__.co_varnames
         }
@@ -95,7 +95,7 @@ def load_config():
                 k: v
                 for k, v in cfg.lr_scheduler.args.items()
                 if k
-                   in getattr(
+                in getattr(
                     scheduler_module, cfg.lr_scheduler.type
                 ).__init__.__code__.co_varnames
             }

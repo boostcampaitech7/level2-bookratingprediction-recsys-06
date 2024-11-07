@@ -65,7 +65,9 @@ class ContextData(DataInterface):
         )[sparse_cols]
         all_df = pd.concat([train_df, test_df], axis=0)
 
-        self._data = self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
+        self._data = self._get_data_with_encode_label(
+            all_df, train_df, test_df, sub, sparse_cols
+        )
         self._data.update({"field_names": sparse_cols})
         label2idx = self._data.get("label2idx")
         field_dims = [
@@ -147,7 +149,7 @@ class ContextData(DataInterface):
 
         for i in range(len(res) - 1, 0, -1):
             if (res[i] in res[:i]) and (
-                    not pd.isna(res[i])
+                not pd.isna(res[i])
             ):  # remove duplicated values if not NaN
                 res.pop(i)
 
@@ -208,11 +210,11 @@ class ContextData(DataInterface):
         )
         for idx, row in users_.iterrows():
             if (not pd.isna(row["location_state"])) and pd.isna(
-                    row["location_country"]
+                row["location_country"]
             ):
                 fill_country = users_[
                     users_["location_state"] == row["location_state"]
-                    ]["location_country"].mode()
+                ]["location_country"].mode()
                 fill_country = fill_country[0] if len(fill_country) > 0 else np.nan
                 users_.loc[idx, "location_country"] = fill_country
             elif (not pd.isna(row["location_city"])) and pd.isna(row["location_state"]):
@@ -220,17 +222,17 @@ class ContextData(DataInterface):
                     fill_state = users_[
                         (users_["location_country"] == row["location_country"])
                         & (users_["location_city"] == row["location_city"])
-                        ]["location_state"].mode()
+                    ]["location_state"].mode()
                     fill_state = fill_state[0] if len(fill_state) > 0 else np.nan
                     users_.loc[idx, "location_state"] = fill_state
                 else:
                     fill_state = users_[
                         users_["location_city"] == row["location_city"]
-                        ]["location_state"].mode()
+                    ]["location_state"].mode()
                     fill_state = fill_state[0] if len(fill_state) > 0 else np.nan
                     fill_country = users_[
                         users_["location_city"] == row["location_city"]
-                        ]["location_country"].mode()
+                    ]["location_country"].mode()
                     fill_country = fill_country[0] if len(fill_country) > 0 else np.nan
                     users_.loc[idx, "location_country"] = fill_country
                     users_.loc[idx, "location_state"] = fill_state

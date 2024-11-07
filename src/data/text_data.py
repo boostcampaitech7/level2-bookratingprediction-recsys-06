@@ -65,7 +65,9 @@ class TextData(DataInterface):
         )[sparse_cols + ["user_summary_merge_vector", "book_summary_vector"]]
         all_df = pd.concat([train, test], axis=0)
 
-        self._data = self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
+        self._data = self._get_data_with_encode_label(
+            all_df, train_df, test_df, sub, sparse_cols
+        )
         self._data.update({"field_names": sparse_cols})
 
     def data_split(self):
@@ -166,7 +168,7 @@ class TextData(DataInterface):
 
     @staticmethod
     def __process_text_data(
-            ratings, users, books, tokenizer, model, vector_create=False
+        ratings, users, books, tokenizer, model, vector_create=False
     ):
         """
         Parameters
@@ -211,7 +213,7 @@ class TextData(DataInterface):
             print("Create Item Summary Vector")
             book_summary_vector_list = []
             for title, summary in tqdm(
-                    zip(books_["book_title"], books_["summary"]), total=len(books_)
+                zip(books_["book_title"], books_["summary"]), total=len(books_)
             ):
                 # 책에 대한 텍스트 프롬프트는 아래와 같이 구성됨
                 # '''
@@ -238,7 +240,7 @@ class TextData(DataInterface):
             user_summary_merge_vector_list = []
             for books_read in tqdm(users_["books_read"]):
                 if not isinstance(books_read, list) and pd.isna(
-                        books_read
+                    books_read
                 ):  # 유저가 읽은 책이 없는 경우, 텍스트 임베딩을 0으로 처리
                     user_summary_merge_vector_list.append(np.zeros((768)))
                     continue
@@ -263,7 +265,7 @@ class TextData(DataInterface):
                 # '''
                 prompt_ = f"{num2txt[len(read_books)]} Books That You Read\n"
                 for idx, (title, summary) in enumerate(
-                        zip(read_books["book_title"], read_books["summary"])
+                    zip(read_books["book_title"], read_books["summary"])
                 ):
                     summary = summary if len(summary) < 100 else f"{summary[:100]} ..."
                     prompt_ += f"{idx + 1}. Book Title: {title}\n Summary: {summary}\n"
@@ -311,11 +313,11 @@ class TextData(DataInterface):
 
     class __Dataset(Dataset):
         def __init__(
-                self,
-                user_book_vector,
-                user_summary_vector,
-                book_summary_vector,
-                rating=None,
+            self,
+            user_book_vector,
+            user_summary_vector,
+            book_summary_vector,
+            rating=None,
         ):
             """
             Parameters

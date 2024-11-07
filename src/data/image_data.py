@@ -50,7 +50,9 @@ class ImageData(DataInterface):
 
         # feature_cols의 데이터만 라벨 인코딩하고 인덱스 정보를 저장
         self._data.update(
-            self._get_data_with_encode_label(all_df, train_df, test_df, sub, sparse_cols)
+            self._get_data_with_encode_label(
+                all_df, train_df, test_df, sub, sparse_cols
+            )
         )
         self._data.update({"field_names": sparse_cols})
 

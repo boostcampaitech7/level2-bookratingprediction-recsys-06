@@ -26,11 +26,11 @@ class DataInterface(ABC):
 
     @staticmethod
     def _get_data_with_encode_label(
-            all_df: pd.DataFrame,
-            train_df: pd.DataFrame,
-            test_df: pd.DataFrame,
-            sub: pd.DataFrame,
-            sparse_cols: list[str],
+        all_df: pd.DataFrame,
+        train_df: pd.DataFrame,
+        test_df: pd.DataFrame,
+        sub: pd.DataFrame,
+        sparse_cols: list[str],
     ) -> dict[str, pd.DataFrame | pd.Series | dict[str, dict[any, int]] | None]:
         label2idx, idx2label = {}, {}
         for col in sparse_cols:
@@ -54,7 +54,7 @@ class DataInterface(ABC):
         }
 
     def get_data(
-            self,
+        self,
     ) -> dict[str, pd.DataFrame | pd.Series | dict[str, dict[any, int]] | None]:
         return self._data
 
