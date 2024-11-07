@@ -31,7 +31,7 @@
 </details>
 
 ## 프로젝트 소개
-- 팀원 : [김건율](https://github.com/ChoonB), 백우성, 유대선, 이제준, [황태결](https://github.com/minari-c/)
+- 팀원 : [김건율](https://github.com/ChoonB), 백우성, 유대선, [이제준](https://github.com/passi3), [황태결](https://github.com/minari-c/)
 - 프로젝트 기간 : 2024/10/30 ~ 2024/11/07
 - 프로젝트 평가 기준 : 예측 평점과 실제 평점의 **RMSE**(Root Mean Square Error)
 - 데이터 : upstage 대회에서 제공(아래 설명 O)
