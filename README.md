@@ -94,10 +94,11 @@
 각 모델들로 예측한 output을 균일한 비중으로 앙상블하고, 조합을 바꿔보면서 실험했다.
 
 ## 3. 최종 결과
-> 위의 모델들을 다 돌려보고 여러 조합으로 앙상블 진행 후, public score(RMSE)가 가장 잘 나온 두 결과를 최종 선택해 제출했다.
+> 위의 모델들을 다 돌려보고 여러 조합으로 앙상블 진행 후, public score(RMSE)가 가장 잘 나온 두 결과를 최종 선택해 제출했다.<br>
+> 자세한 하이퍼파라미터와 실험 환경 설정은 [config-sample.yaml](https://github.com/boostcampaitech7/level2-bookratingprediction-recsys-06/blob/main/config-sample.yaml)에서 확인 가능
 
-1. kgy_코드수정_cofig_lr수정_FM <br>
-**Public RMSE : 2.1773**
-
-2. kgy_ens_코드수정_fm+ffm+ncf+wdn+dcn+textdeepfm+imagefm <br>
-**Public RMSE : 2.2260**
+1. FM 단일 모델에 context 데이터 적용.
+- **Public RMSE : 2.1773**
+  
+2. FM, FFM, NCF, WDN, DCN, Text DeepFM, ImageFM 모델 비중을 균일하게 앙상블.
+- **Public RMSE : 2.2260**
