@@ -69,7 +69,7 @@ def run_model(cfg: DictConfig | ListConfig):
 
 
 def load_config():
-    cfg = OmegaConf.load("config_baseline.yaml")
+    cfg = OmegaConf.load("config.yaml")
     # 사용되지 않는 정보 삭제 (학습 시에만)
     if not cfg.predict:
         del cfg.checkpoint
