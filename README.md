@@ -98,7 +98,7 @@
 > 자세한 하이퍼파라미터와 실험 환경 설정은 [config-sample.yaml](https://github.com/boostcampaitech7/level2-bookratingprediction-recsys-06/blob/main/config-sample.yaml)에서 확인 가능
 
 1. FM 단일 모델에 context 데이터 적용.
-- **Public RMSE : 2.1773**
+- **Public RMSE : 2.1773 / Private RMSE : 2.1726**
   
 2. FM, FFM, NCF, WDN, DCN, Text DeepFM, ImageFM 모델 비중을 균일하게 앙상블.
-- **Public RMSE : 2.2260**
+- **Public RMSE : 2.2260 / Private RMSE : 2.2241**
